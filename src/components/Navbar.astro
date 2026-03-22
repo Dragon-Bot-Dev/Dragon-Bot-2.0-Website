@@ -1,0 +1,49 @@
+---
+// You can define your navigation links here as an array to keep the HTML clean
+const navLinks = [
+  { name: 'Quick Setup', href: '/setup' },
+  { name: 'Commands', href: '/commands' },
+  { name: 'Support Us', href: '/premium', isSpecial: true }
+];
+const inviteLink = "https://discord.com/oauth2/authorize?client_id=1322658381974208522&permissions=2214709312&integration_type=0&scope=bot+applications.commands";
+---
+
+    <nav class="sticky top-0 z-50 w-full border-b border-slate-800 bg-slate-950/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    
+    <a href="/" class="flex items-center gap-3 group">
+    <img 
+    src="/dragon.png" 
+    alt="Dragon Bot Logo" 
+    class="h-10 w-10 object-contain transition-transform group-hover:scale-110"
+        />
+    <span class="font-bold text-xl tracking-tight text-white group-hover:text-orange-400 transition-colors">
+    Dragon Bot <span class="text-slate-500">2.0</span>
+    </span>
+        </a>
+    
+
+    <div class="hidden md:flex items-center gap-8">
+      {navLinks.map((link) => (
+  <a 
+    href={link.href} 
+    class={`text-sm font-bold transition-colors ${link.isSpecial ? 'text-amber-400 hover:text-amber-300' : 'text-slate-400 hover:text-white'}`}
+  >
+    {link.name}
+    {link.isSpecial && <span class="ml-1 text-[8px] bg-amber-400/10 text-amber-400 px-1 rounded border border-amber-400/20">SOON</span>}
+  </a>
+))}
+      
+      <a href={inviteLink}
+         class="bg-orange-600 hover:bg-orange-500 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg shadow-orange-900/20">
+        Invite Now
+      </a>
+    </div>
+
+    <button class="md:hidden text-slate-400">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+  </div>
+</nav>

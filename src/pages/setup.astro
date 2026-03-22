@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import VideoCard from '../components/VideoCard.astro';
+import '../styles/global.css';
+
+const steps = [
+  {
+    title: "Invite the Dragon",
+    description: "Use the 'Add to Discord' button to bring Dragon Bot 2.0 into your server. Just a few clicks and you're done.",
+    stepNumber: "01",
+    videoSrc: null // Placeholder for now
+  },
+  {
+    title: "Link Your Clan & set reminders",
+    description: "Run /setclantag and paste in your clan. You can also toggle specific war pings or raid reminders in specific channels on your server.",
+    stepNumber: "02",
+    videoSrc: null
+  },
+  {
+    title: "Link your CoC Account",
+    description: "Use /link and paste your account ID to link your account to the Dragon Bot. This grants you easier access to player-related commands.",    stepNumber: "03",
+    videoSrc: null
+  }
+];
+---
+
+<Layout title="Quick Start Guide | Dragon Bot 2.0">
+  <Navbar />
+  
+  <main class="bg-slate-950 min-h-screen pt-24 pb-12 px-6">
+    <div class="max-w-5xl mx-auto">
+      <header class="mb-20 text-center">
+        <h1 class="text-4xl md:text-6xl font-black text-white mb-6">
+          Ready for <span class="text-orange-500 text-glow">Takeoff?</span>
+        </h1>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+          Follow this 3-step sequence to get Dragon Bot 2.0 fully integrated with your clan's Discord.
+        </p>
+      </header>
+
+      <div class="space-y-4">
+        {steps.map(step => (
+          <VideoCard {...step} />
+        ))}
+      </div>
+
+      <div class="mt-16 p-8 bg-indigo-600/10 border border-indigo-500/20 rounded-3xl flex flex-col md:flex-row items-center gap-6">
+        <div class="text-4xl">💡</div>
+        <div>
+          <h4 class="text-indigo-400 font-bold mb-1">Developer Pro-Tip</h4>
+          <p class="text-slate-400 text-sm">
+            Dragon Bot uses a <strong>buffered connection</strong> to the CoC API. If reminders don't show up immediately after a war starts, wait one heartbeat cycle (9 minutes) for the cache to refresh.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

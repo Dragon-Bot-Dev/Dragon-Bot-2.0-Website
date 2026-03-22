@@ -1,0 +1,62 @@
+---
+const features = [
+  {
+    title: "Smart War Reminders",
+    description: "Intelligent pings issued to players who haven't completed their attacks in war & CWL.",
+    icon: "⚔️",
+    color: "from-orange-500 to-red-600"
+  },
+  {
+    title: "Live Reddit Leaks",
+    description: "Automatically stream the latest Clash of Clans leaks and news directly into your community channels.",
+    icon: "📱",
+    color: "from-blue-500 to-indigo-600"
+  },
+  {
+    title: "Deep Clan Analytics",
+    description: "Get real-time stats on clan performance, war participation, and player growth with simple commands.",
+    icon: "📊",
+    color: "from-emerald-500 to-teal-600"
+  },
+  {
+    title: "Reliable",
+    description: "Built with a 9-minute heartbeat and retry logic to ensure 99.9% uptime on cloud environments.",
+    icon: "🛡️",
+    color: "from-purple-500 to-pink-600"
+  }
+];
+---
+
+<section id="features" class="py-24 bg-slate-950 relative overflow-hidden">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-indigo-500/5 blur-[120px] -z-10"></div>
+
+  <div class="max-w-7xl mx-auto px-6 text-center mb-20">
+    <h2 class="text-4xl md:text-6xl font-black text-white mb-6">
+      Built for <span class="text-orange-500">Serious</span> Leaders
+    </h2>
+    <p class="text-slate-400 max-w-2xl mx-auto text-lg">
+      Everything you need to manage a top-tier clan, automated and optimized for Discord.
+    </p>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    {features.map(feature => (
+      <div class="group relative p-10 rounded-3xl bg-slate-900/50 border border-slate-800 hover:border-slate-600 transition-all duration-500 flex flex-col items-center text-center">
+        
+        <div class={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 blur-2xl transition-opacity duration-500 rounded-3xl`}></div>
+        
+        <div class={`relative z-10 flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br ${feature.color} text-4xl mb-8 shadow-2xl shadow-black/50 transform group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500`}>
+          {feature.icon}
+        </div>
+        
+        <h3 class="relative z-10 text-2xl font-bold text-white mb-4 group-hover:text-orange-400 transition-colors">
+          {feature.title}
+        </h3>
+        
+        <p class="relative z-10 text-slate-400 leading-relaxed text-sm group-hover:text-slate-300 transition-colors">
+          {feature.description}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
