@@ -1,46 +1,30 @@
-# Astro Starter Kit: Basics
+# Dragon Bot 2.0 | Official Landing Page
 
-```sh
-npm create astro@latest -- --template basics
-```
+The high-performance, SEO-optimized landing page for **Dragon Bot 2.0**—the ultimate automation suite for Clash of Clans.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+[Live Site](https://dragon-bot-website.vercel.app/) | [Organization Profile](https://github.com/Dragon-Bot-CoC)
 
-## 🚀 Project Structure
+---
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🚀 Tech Stack
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+This site is built to get the bot to your server fast and act as a guide:
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+* **Framework:** [Astro 6.0](https://astro.build/) (Island Architecture)
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+* **Deployment:**[Vercel] (https://vercel.com/)
+* **Language:** TypeScript
 
-## 🧞 Commands
+## ✨ Key Features
 
-All commands are run from the root of the project, from a terminal:
+- **Live System Health:** Real-time telemetry monitoring for Bot heartbeat and API latency.
+- **SEO Optimized:** Meta-tags and structured data for maximum visibility in the CoC community.
+- **Support-First Pricing:** A community-focused "Supporter" tier integrated with Stripe (coming soon).
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## 🛠️ Local Development
 
-## 👀 Want to learn more?
+Get the environment running on your local machine:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. **Clone the repo:**
+   ```bash
+   git clone [https://github.com/Dragon-Bot-CoC/Dragon-Bot-2.0-Website.git](https://github.com/Dragon-Bot-CoC/Dragon-Bot-2.0-Website.git)
