@@ -3,11 +3,11 @@
 The high-performance, SEO-optimized landing page for **Dragon Bot 2.0**—the ultimate automation suite for Clash of Clans.
 Designed for users to add the bot to their server & act as a guide.
 
-[**Live Demo**](https://dragon-bot-website.vercel.app/) • [**Organization Profile**](https://github.com/Dragon-Bot-CoC)
+[**Live Site**](https://dragon-bot-website.vercel.app/) • [**Organization Profile**](https://github.com/Dragon-Bot-CoC)
 
 ---
 
-## 🚀 Tech Stack
+## Tech Stack
 
 * **Framework:** Astro 6.0
 * **Styling:** Tailwind CSS
@@ -15,14 +15,14 @@ Designed for users to add the bot to their server & act as a guide.
 * **Deployment:** Vercel
 * **Language:** TypeScript 
 
-## ✨ Key Features
+## Key Features
 
 * **Live System Health:** Real-time telemetry monitoring displaying Bot heartbeat and API response latency.
 * **SEO Optimized:** Comprehensive OpenGraph meta-tags and structured data for visibility in search engines and Discord embeds.
 * **Responsive Design:** Fully fluid layouts designed for mobile clan leaders and desktop power users.
 * **Support-First Pricing:** A community-focused "Supporter" tier integrated with Stripe (coming soon).
 
-## 🛠️ Local Development
+## Local Development
 
 Follow these steps to set up the project environment on your local machine.
 
@@ -45,3 +45,5 @@ Follow these steps to set up the project environment on your local machine.
 
 ## Contributors:
 [**Keepas**](https://github.com/Keepas3) - Lead Developer
+
+Developed under the **Dragon-Bot-CoC** Organization.
