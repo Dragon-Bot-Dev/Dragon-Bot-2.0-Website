@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@keyframes text-glow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2), 0 0 20px rgba(129, 140, 248, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 30px rgba(129, 140, 248, 0.5);
+  }
+}
+
+.animate-text-glow {
+  animation: text-glow 3s ease-in-out infinite;
+}
+.text-glow {
+  text-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+}
+
+@keyframes pulse-border {
+  0%, 100% { border-color: rgba(30, 41, 59, 1); }
+  50% { border-color: rgba(245, 158, 11, 0.3); }
+}
+
+.animate-border-pulse {
+  animation: pulse-border 4s infinite;
+}
