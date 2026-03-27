@@ -8,11 +8,11 @@ const { title, description, videoSrc, stepNumber } = Astro.props;
     {videoSrc ? (
       <video 
         src={videoSrc} 
-        autoplay 
+        controls 
         muted 
         loop 
         playsinline 
-        class="w-full h-full object-cover"
+        class="rounded-xl w-full"
       ></video>
     ) : (
       <div class="w-full h-full flex flex-col items-center justify-center space-y-4">
