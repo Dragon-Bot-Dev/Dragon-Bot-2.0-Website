@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Button from '../components/Button.astro';
 import DiscordEmbed from '../components/DiscordEmbed.astro';
 import FaqList from '../components/FaqList.astro';
+import Rule from '../components/Rule.astro';
 import { LINKS } from '../config';
 import { homeFaq } from '../data/faq';
 
@@ -54,8 +55,8 @@ const steps = [
 
 <Layout>
   <!-- Hero -->
-  <section class="border-b border-slate-800">
-    <div class="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 md:py-20 lg:grid-cols-[1.1fr_1fr]">
+  <section>
+    <div class="mx-auto grid max-w-6xl items-center gap-12 page-x py-16 md:py-20 lg:grid-cols-[1.1fr_1fr]">
       <div class="min-w-0">
         <h1 class="text-4xl font-bold leading-tight text-white md:text-5xl">
           Never miss a war attack again.
@@ -97,9 +98,10 @@ const steps = [
       </DiscordEmbed>
     </div>
   </section>
+  <Rule />
 
   <!-- Features -->
-  <section class="mx-auto max-w-6xl px-5">
+  <section class="mx-auto max-w-6xl page-x">
     {features.map((f, i) => (
       <div class="grid items-start gap-8 border-b border-slate-800 py-14 lg:grid-cols-2 lg:gap-16">
         <div class={`min-w-0 ${i % 2 === 1 ? 'lg:order-2' : ''}`}>
@@ -163,7 +165,7 @@ Example fix</pre>
   </section>
 
   <!-- Extras -->
-  <section class="mx-auto max-w-6xl px-5 py-14">
+  <section class="mx-auto max-w-6xl page-x py-14">
     <h2 class="text-2xl font-bold text-white">Also included</h2>
     <dl class="mt-6 grid gap-x-12 md:grid-cols-2">
       {extras.map(([term, desc]) => (
@@ -179,15 +181,18 @@ Example fix</pre>
   </section>
 
   <!-- Setup -->
-  <section class="border-t border-slate-800">
-    <div class="mx-auto max-w-6xl px-5 py-14">
+  <Rule />
+  <section>
+    <div class="mx-auto max-w-6xl page-x py-14">
       <h2 class="text-2xl font-bold text-white">Getting started</h2>
       <ol class="mt-6 max-w-2xl divide-y divide-slate-800 border-y border-slate-800">
         {steps.map(([text, cmd], i) => (
-          <li class="flex flex-wrap items-baseline gap-x-4 gap-y-1 py-4">
+          <li class="grid grid-cols-[1.75rem_1fr] items-baseline py-4">
             <span class="font-mono text-sm text-slate-400">{i + 1}.</span>
-            <span class="text-slate-200">{text}</span>
-            {cmd && <code class="font-mono text-sm text-ember-300">{cmd}</code>}
+            <div>
+              <span class="text-slate-200">{text}</span>
+              {cmd && <code class="mt-1 block break-words font-mono text-sm text-ember-300 sm:ml-4 sm:inline">{cmd}</code>}
+            </div>
           </li>
         ))}
       </ol>
@@ -198,7 +203,7 @@ Example fix</pre>
   </section>
 
   <!-- FAQ -->
-  <section class="mx-auto max-w-6xl px-5 pb-14">
+  <section class="mx-auto max-w-6xl page-x pb-14">
     <h2 class="text-2xl font-bold text-white">Common questions</h2>
     <div class="mt-6 max-w-3xl">
       <FaqList items={homeFaq} />
@@ -209,8 +214,9 @@ Example fix</pre>
   </section>
 
   <!-- CTA -->
-  <section class="border-t border-slate-800">
-    <div class="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-14 md:flex-row md:items-center md:justify-between">
+  <Rule />
+  <section>
+    <div class="mx-auto flex max-w-6xl flex-col gap-6 page-x py-14 md:flex-row md:items-center md:justify-between">
       <div>
         <h2 class="text-2xl font-bold text-white">Add Dragon Bot to your server</h2>
         <p class="mt-2 text-slate-300">Then run <code class="font-mono text-ember-300">/setclantag</code> and you are set.</p>

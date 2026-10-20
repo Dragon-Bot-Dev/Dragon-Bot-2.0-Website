@@ -10,7 +10,7 @@ import { commandGroups, totalCommands } from '../data/commands';
   title="Commands | Dragon Bot 2.0"
   description="Every Dragon Bot 2.0 slash command: war and CWL tools, clan and player lookups, reminder settings, and update notes."
 >
-  <section class="mx-auto max-w-6xl px-5 pb-6 pt-14">
+  <section class="mx-auto max-w-6xl page-x pb-6 pt-14">
     <SectionHeader
       as="h1"
       title="Commands"
@@ -41,7 +41,7 @@ import { commandGroups, totalCommands } from '../data/commands';
     </div>
   </section>
 
-  <section class="mx-auto max-w-6xl space-y-12 px-5 pb-20 pt-6">
+  <section class="mx-auto max-w-6xl space-y-12 page-x pb-20 pt-6">
     {commandGroups.map((group) => (
       <div class="command-group" data-group={group.id}>
         <div class="mb-5 border-b border-slate-800 pb-3">

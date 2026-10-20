@@ -18,11 +18,20 @@ export const LINKS = {
   githubIssues: "https://github.com/Dragon-Bot-Dev/Dragon-Bot-2.0/issues",
 };
 
+// Voluntary support. Leave `url` empty until a donation page exists; the
+// Support page shows a disabled "coming soon" button and the nav shows
+// "(soon)". Set `url` (and `platform`, e.g. "Ko-fi") to make it live.
+export const SUPPORT = {
+  url: "",
+  platform: "",
+};
+export const supportLive = SUPPORT.url !== "";
+
 export const NAV = [
   { name: "Setup", href: "/setup" },
   { name: "Commands", href: "/commands" },
   { name: "FAQ", href: "/faq" },
-  { name: "Support", href: "/support", soon: true },
+  { name: "Support", href: "/support", soon: !supportLive },
 ];
 
 // How often the bot checks wars / raids for reminders. Keep in sync with the

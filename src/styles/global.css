@@ -23,6 +23,15 @@
   --color-dc-muted: #949ba4;
 }
 
+/* Side padding for page containers: roomier on phones so text and dividers
+   sit well inside the screen edges. */
+@utility page-x {
+  padding-inline: 1.75rem;
+  @media (width >= 40rem) {
+    padding-inline: 2rem;
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;

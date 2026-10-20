@@ -1,0 +1,12 @@
+---
+// A divider that lines up with the page's text column instead of running
+// edge to edge across the screen.
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+
+<div class={`page-x mx-auto max-w-6xl ${className}`} role="separator">
+  <div class="border-t border-slate-800"></div>
+</div>

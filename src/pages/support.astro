@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import Button from '../components/Button.astro';
-import { LINKS } from '../config';
+import { LINKS, SUPPORT, supportLive } from '../config';
 
 const costs = [
   ['Hosting', 'The bot runs around the clock on a cloud host so reminders arrive on time.'],
@@ -21,21 +21,31 @@ const freeWays = [
   title="Support Dragon Bot | Dragon Bot 2.0"
   description="Dragon Bot is free to use and built by one developer for the Clash of Clans community. Here is how hosting is covered and how you can help."
 >
-  <section class="mx-auto max-w-3xl px-5 pb-10 pt-14">
+  <section class="mx-auto max-w-3xl page-x pb-10 pt-14">
     <SectionHeader
       as="h1"
       title="Support Dragon Bot"
-      lead="Dragon Bot started as a tool for the developer's own clan and is free to use. Hosting and database costs are paid out of pocket, and optional support is planned to help cover them."
+      lead={supportLive
+        ? "Dragon Bot started as a tool for the developer's own clan and is free to use. Hosting and database costs are paid out of pocket. If the bot is useful to your clan, you can chip in."
+        : "Dragon Bot started as a tool for the developer's own clan and is free to use. Hosting and database costs are paid out of pocket, and optional support is planned to help cover them."}
     />
     <div class="mt-6">
-      <Button disabled variant="primary" size="lg">Support options coming soon</Button>
-      <p class="mt-3 text-sm text-slate-400">
-        Payments are not set up yet and nothing here is required. Pricing and any supporter perks are not decided.
+      {supportLive ? (
+        <Button href={SUPPORT.url} external variant="primary" size="lg">
+          {SUPPORT.platform ? `Support on ${SUPPORT.platform}` : 'Support Dragon Bot'}
+        </Button>
+      ) : (
+        <Button disabled variant="primary" size="lg">Support options coming soon</Button>
+      )}
+      <p class="mt-3 max-w-xl text-sm leading-relaxed text-slate-400">
+        {supportLive
+          ? "Support is entirely voluntary. It does not unlock features or change how the bot works for you. Payments are handled by a third-party platform, not by this site or the bot."
+          : "Nothing here is required. Support will be entirely voluntary and will not unlock features or change how the bot works."}
       </p>
     </div>
   </section>
 
-  <section class="mx-auto max-w-3xl px-5 py-10">
+  <section class="mx-auto max-w-3xl page-x py-10">
     <h2 class="text-2xl font-bold text-white">Where support goes</h2>
     <dl class="mt-4 divide-y divide-slate-800 border-y border-slate-800">
       {costs.map(([term, desc]) => (
@@ -47,7 +57,7 @@ const freeWays = [
     </dl>
   </section>
 
-  <section class="mx-auto max-w-3xl px-5 pb-20 pt-4">
+  <section class="mx-auto max-w-3xl page-x pb-20 pt-4">
     <h2 class="text-2xl font-bold text-white">Other ways to help right now</h2>
     <dl class="mt-4 divide-y divide-slate-800 border-y border-slate-800">
       {freeWays.map(([term, desc, href, label]) => (
