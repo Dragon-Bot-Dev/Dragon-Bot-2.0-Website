@@ -1,0 +1,40 @@
+---
+// A static mock of a Discord message from the bot, used to show what the bot's
+// output actually looks like. Content passed in is illustrative example data.
+interface Props {
+  title?: string;
+  color?: string; // embed left-border color
+  command?: string; // shown above the message as a slash-command invocation
+  footer?: string;
+  caption?: string;
+}
+const { title, color = '#f97316', command, footer, caption } = Astro.props;
+---
+
+<figure class="w-full min-w-0">
+  <div class="rounded-lg bg-dc-bg border border-slate-800 p-4 sm:p-5 text-dc-text">
+    {command && (
+      <p class="flex items-center gap-1.5 text-xs text-dc-muted mb-3">
+        <span class="font-mono text-indigo-300">{command}</span>
+      </p>
+    )}
+    <div class="flex gap-3">
+      <img src="/dragon.png" alt="" class="h-10 w-10 rounded-full bg-slate-900 object-contain shrink-0" />
+      <div class="min-w-0 flex-1">
+        <p class="flex items-center gap-2 text-sm">
+          <span class="font-semibold text-white">Dragon Bot 2.0</span>
+          <span class="rounded bg-blurple px-1.5 py-px text-[11px] font-bold leading-4 text-white">APP</span>
+        </p>
+        <div
+          class="mt-1.5 rounded-md bg-dc-embed p-3 text-sm leading-relaxed"
+          style={`border-left: 4px solid ${color};`}
+        >
+          {title && <p class="font-semibold text-white mb-1.5">{title}</p>}
+          <slot />
+          {footer && <p class="mt-2 text-xs text-dc-muted">{footer}</p>}
+        </div>
+      </div>
+    </div>
+  </div>
+  {caption && <figcaption class="mt-3 text-sm text-slate-400">{caption}</figcaption>}
+</figure>

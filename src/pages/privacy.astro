@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import { LINKS } from '../config';
+---
+
+<Layout
+  title="Privacy Policy | Dragon Bot 2.0"
+  description="What data Dragon Bot 2.0 stores, why, who it is shared with, and how to have it removed."
+>
+  <section class="mx-auto max-w-3xl px-5 pb-8 pt-16 md:pt-20">
+    <SectionHeader as="h1" title="Privacy Policy" lead="Last updated: October 2026" />
+  </section>
+
+  <section class="prose-site mx-auto max-w-3xl px-5 pb-24">
+    <p>
+      Dragon Bot 2.0 ("the bot") is an independent, fan-made Discord bot for Clash of Clans communities. This page
+      explains what information it stores and uses. It is written to match what the bot actually does.
+    </p>
+
+    <h2>What the bot stores</h2>
+    <h3>When your server uses the bot</h3>
+    <ul>
+      <li>Your Discord server's ID and name.</li>
+      <li>The Clash of Clans clan tag your server linked with <code>/setclantag</code>.</li>
+      <li>The channel IDs chosen for war, raid and news posts, and your reminder-time settings.</li>
+      <li>Internal markers that stop reminders being sent twice (such as which war the bot last handled).</li>
+    </ul>
+    <p>If the bot is removed from your server, that server's settings are deleted.</p>
+
+    <h3>When you link your account with /link</h3>
+    <ul>
+      <li>Your Discord user ID and your Discord display name at the time you linked.</li>
+      <li>Your Clash of Clans player tag.</li>
+    </ul>
+    <p>
+      To link, you enter your in-game API token. The token is used once to check with Supercell that the account is
+      yours. The bot does not store it.
+    </p>
+
+    <h3>War activity history</h3>
+    <p>
+      When a war or CWL round ends, the bot records a result for each member of the active lineup: their player tag,
+      in-game name, stars, destruction percentage, attacks used, the opponent's clan name and the war end time. This
+      powers <code>/waractivity</code>. This is public Clash of Clans data, but it is kept by the bot. The command only
+      looks back about 10 days, but older records are not currently deleted automatically.
+    </p>
+
+    <h3>Supercell Store session (optional)</h3>
+    <p>
+      If you choose <strong>Link Store (Cookies)</strong>, you send the bot a copy of your Supercell Store login
+      cookies in a private message. These work like a password for that store session. They are stored in the bot's
+      database and used only to log in to the Supercell Store on your behalf when you run <code>/claim</code>. This
+      feature is optional and you can ignore it completely. Only link a store session if you are comfortable with this.
+    </p>
+    <p>
+      While you are linking, the bot reads your next direct message for up to two minutes to receive the cookie text or
+      file. It does not read your other direct messages.
+    </p>
+
+    <h3>Logs</h3>
+    <p>
+      The bot's hosting provider keeps operational logs (for example errors and command activity), which may include
+      Discord usernames or IDs. They are used to run and debug the bot.
+    </p>
+
+    <h2>How the information is used</h2>
+    <ul>
+      <li>To send war, raid and news posts to the channels you configured.</li>
+      <li>To mention you in reminders when you have linked your account.</li>
+      <li>To answer commands such as <code>/playerinfo</code> and <code>/waractivity</code>.</li>
+      <li>To claim Supercell Store rewards, only if you linked a store session and run <code>/claim</code>.</li>
+    </ul>
+    <p>The bot does not sell your data and does not show ads.</p>
+
+    <h2>Who it is shared with</h2>
+    <p>The bot sends data to these services only to do its job:</p>
+    <ul>
+      <li><strong>Discord</strong>, which delivers the bot's messages and commands.</li>
+      <li><strong>Supercell</strong>, whose Clash of Clans API receives clan and player tags to look up game data, and whose store website is visited using your session if you use <code>/claim</code>.</li>
+      <li><strong>Reddit</strong>, when you use <code>/receiveposts</code>.</li>
+      <li><strong>Railway</strong>, the cloud host where the bot and its database run.</li>
+    </ul>
+
+    <h2>Your choices</h2>
+    <ul>
+      <li>Run <code>/unlink</code> to remove your linked Clash of Clans account.</li>
+      <li>Server admins can turn off reminders and news with <code>/adjust_reminders</code>, or remove the bot to delete the server's settings.</li>
+      <li>
+        To have any of your data deleted, including a Store session or war history entries, ask in the
+        <a href={LINKS.discord} target="_blank" rel="noopener noreferrer">support server</a>.
+      </li>
+    </ul>
+
+    <h2>Children</h2>
+    <p>The bot is not directed at children under 13, and Discord itself requires users to meet its minimum age.</p>
+
+    <h2>Changes</h2>
+    <p>If this policy changes, the date at the top will be updated.</p>
+
+    <h2>Contact</h2>
+    <p>
+      Questions or deletion requests:
+      <a href={LINKS.discord} target="_blank" rel="noopener noreferrer">Dragon Bot support server</a>.
+    </p>
+
+    <p class="mt-10 text-sm text-slate-400">
+      Dragon Bot is not affiliated with, endorsed, or sponsored by Supercell. All game content and trademarks belong to Supercell.
+    </p>
+  </section>
+</Layout>

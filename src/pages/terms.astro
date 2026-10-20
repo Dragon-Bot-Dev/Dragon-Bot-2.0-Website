@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import { LINKS } from '../config';
+---
+
+<Layout
+  title="Terms of Service | Dragon Bot 2.0"
+  description="The terms for using Dragon Bot 2.0."
+>
+  <section class="mx-auto max-w-3xl px-5 pb-8 pt-16 md:pt-20">
+    <SectionHeader as="h1" title="Terms of Service" lead="Last updated: October 2026" />
+  </section>
+
+  <section class="prose-site mx-auto max-w-3xl px-5 pb-24">
+    <p>
+      By adding or using Dragon Bot 2.0 ("the bot"), you agree to these terms. If you do not agree, do not use the bot.
+    </p>
+
+    <h2>The service</h2>
+    <p>
+      The bot is a free, independent, fan-made tool for Clash of Clans communities, run by an individual developer. It
+      depends on Discord, Supercell's Clash of Clans API and other third-party services, so it can be slow, wrong or
+      unavailable at times. It is provided "as is", without any promise of uptime, accuracy or fitness for a purpose.
+    </p>
+
+    <h2>Using the bot</h2>
+    <ul>
+      <li>Follow the <a href="https://discord.com/terms" target="_blank" rel="noopener noreferrer">Discord Terms of Service</a> and Community Guidelines.</li>
+      <li>Do not abuse, overload, reverse engineer or attempt to disrupt the bot or the services it relies on.</li>
+      <li>Do not use the bot to harass others or to link accounts you do not own.</li>
+      <li>Server admins are responsible for how the bot is configured in their server.</li>
+    </ul>
+
+    <h2>Supercell Store feature</h2>
+    <p>
+      The optional <code>/claim</code> feature uses your own Supercell Store session to collect rewards for you. It
+      works by automating the store website, which is outside Supercell's official API. You use it at your own risk and
+      are responsible for complying with Supercell's terms for your account. The developer is not responsible for any
+      action Supercell takes on your account. See the <a href="/privacy">Privacy Policy</a> for how session data is handled.
+    </p>
+
+    <h2>No affiliation</h2>
+    <p>
+      Dragon Bot is not affiliated with, endorsed, or sponsored by Supercell. Clash of Clans and all related names, art
+      and trademarks belong to Supercell.
+    </p>
+
+    <h2>Changes and ending access</h2>
+    <p>
+      Features may change or be removed at any time. Access to the bot may be limited or ended for servers or users who
+      abuse it. You can stop using the bot at any time by removing it from your server and running <code>/unlink</code>.
+    </p>
+
+    <h2>Limitation of liability</h2>
+    <p>
+      To the fullest extent permitted by law, the developer is not liable for any loss or damage arising from your use
+      of the bot, including missed reminders, incorrect data, or actions taken by Supercell or Discord.
+    </p>
+
+    <h2>Updates to these terms</h2>
+    <p>If these terms change, the date at the top will be updated. Continuing to use the bot means you accept the new terms.</p>
+
+    <h2>Contact</h2>
+    <p>
+      <a href={LINKS.discord} target="_blank" rel="noopener noreferrer">Dragon Bot support server</a>
+    </p>
+  </section>
+</Layout>

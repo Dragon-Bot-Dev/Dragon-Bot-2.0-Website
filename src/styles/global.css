@@ -1,46 +1,93 @@
 @import "tailwindcss";
-@keyframes text-glow {
-  0%, 100% {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2), 0 0 20px rgba(129, 140, 248, 0.2);
+
+/* Design tokens. One accent (ember) on the slate scale; Discord blurple is
+   reserved for Discord-specific elements (invite button, message mockups). */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --color-ember-300: #fdba74;
+  --color-ember-400: #fb923c;
+  --color-ember-500: #f97316;
+  --color-ember-600: #ea580c;
+  --color-ember-700: #c2410c;
+
+  --color-blurple: #5865f2;
+  --color-blurple-hover: #4752c4;
+
+  /* Discord message mockup surfaces */
+  --color-dc-bg: #313338;
+  --color-dc-embed: #2b2d31;
+  --color-dc-text: #dbdee1;
+  --color-dc-muted: #949ba4;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
-  50% {
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 30px rgba(129, 140, 248, 0.5);
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-slate-950);
+    color: var(--color-slate-200);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--color-ember-500) 35%, transparent);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-ember-400);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 }
 
-.animate-text-glow {
-  animation: text-glow 3s ease-in-out infinite;
-}
-.text-glow {
-  text-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
-}
-
-@keyframes pulse-border {
-  0%, 100% { border-color: rgba(30, 41, 59, 1); }
-  50% { border-color: rgba(245, 158, 11, 0.3); }
-}
-
-.animate-border-pulse {
-  animation: pulse-border 4s infinite;
-}
 @layer components {
-  /* The "Mesh" effect: Overlapping radial gradients */
-  .bg-mesh {
-    background-color: #020617; /* slate-950 */
-    background-image: 
-      radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-      radial-gradient(at 100% 0%, rgba(249, 115, 22, 0.1) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(79, 70, 229, 0.1) 0px, transparent 50%),
-      radial-gradient(at 0% 100%, rgba(217, 70, 239, 0.05) 0px, transparent 50%);
+  /* Long-form legal / FAQ text */
+  .prose-site h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
   }
-
-  /* Super-Ellipse (Squircle) look */
-  .rounded-squircle {
-    border-radius: 3rem;
+  .prose-site h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #fff;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
   }
+  .prose-site p,
+  .prose-site li {
+    color: var(--color-slate-300);
+    line-height: 1.75;
+  }
+  .prose-site p { margin-bottom: 1rem; }
+  .prose-site ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+  .prose-site li { margin-bottom: 0.375rem; }
+  .prose-site a { color: var(--color-ember-400); text-decoration: underline; text-underline-offset: 3px; }
+  .prose-site a:hover { color: var(--color-ember-300); }
+  .prose-site code {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    background: var(--color-slate-800);
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.375rem;
+    color: var(--color-ember-300);
+  }
+}
 
-  /* High-end text glow */
-  .text-glow-orange {
-    text-shadow: 0 0 30px rgba(249, 115, 22, 0.4);
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

@@ -1,0 +1,14 @@
+---
+interface Props {
+  title: string;
+  lead?: string;
+  as?: 'h1' | 'h2';
+}
+const { title, lead, as: Heading = 'h2' } = Astro.props;
+const size = Heading === 'h1' ? 'text-4xl md:text-5xl' : 'text-2xl md:text-3xl';
+---
+
+<header class="max-w-2xl">
+  <Heading class={`${size} font-bold text-white`}>{title}</Heading>
+  {lead && <p class="mt-3 text-lg leading-relaxed text-slate-300">{lead}</p>}
+</header>

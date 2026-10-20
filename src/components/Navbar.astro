@@ -1,78 +1,93 @@
 ---
-// You can define your navigation links here as an array to keep the HTML clean
-const navLinks = [
-  { name: 'Quick Setup', href: '/setup' },
-  { name: 'Commands', href: '/commands' },
-  { name: 'Support Us', href: '/premium', isSpecial: true }
-];
-const inviteLink = "https://discord.com/oauth2/authorize?client_id=1322658381974208522&permissions=2147830784&integration_type=0&scope=bot+applications.commands";
+import Icon from './Icon.astro';
+import Button from './Button.astro';
+import { NAV, LINKS, SITE } from '../config';
+
+interface Props {
+  currentPath?: string;
+}
+const { currentPath = '/' } = Astro.props;
+
+const isActive = (href: string) =>
+  currentPath === href || currentPath === `${href}/`;
 ---
 
-    <nav class="sticky top-0 z-50 w-full border-b border-slate-800 bg-slate-950/80 backdrop-blur-md">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-    
-    <a href="/" class="flex items-center gap-3 group">
-    <img 
-    src="/dragon.png" 
-    alt="Dragon Bot Logo" 
-    class="h-10 w-10 object-contain transition-transform group-hover:scale-110"
-        />
-    <span class="font-bold text-xl tracking-tight text-white group-hover:text-orange-400 transition-colors">
-    Dragon Bot <span class="text-slate-500">2.0</span>
-    </span>
-        </a>
-    
+<header class="sticky top-0 z-50 w-full border-b border-slate-800 bg-slate-950">
+  <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5" aria-label="Main">
+    <a href="/" class="flex items-center gap-2.5">
+      <img src="/dragon.png" alt="" class="h-9 w-9 object-contain" />
+      <span class="font-display text-lg font-bold tracking-tight text-white">
+        {SITE.shortName} <span class="text-slate-400">2.0</span>
+      </span>
+    </a>
 
-    <div class="hidden md:flex items-center gap-8">
-      {navLinks.map((link) => (
-  <a 
-    href={link.href} 
-    class={`text-sm font-bold transition-colors ${link.isSpecial ? 'text-amber-400 hover:text-amber-300' : 'text-slate-400 hover:text-white'}`}
-  >
-    {link.name}
-    {link.isSpecial && <span class="ml-1 text-[8px] bg-amber-400/10 text-amber-400 px-1 rounded border border-amber-400/20">SOON</span>}
-  </a>
-))}
-      
-      <a href={inviteLink} target ="_blank" rel="noopener noreferrer"
-         class="bg-orange-600 hover:bg-orange-500 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg shadow-orange-900/20">
-        Invite Now
-      </a>
+    <div class="hidden items-center gap-1 md:flex">
+      {NAV.map((link) => (
+        <a
+          href={link.href}
+          aria-current={isActive(link.href) ? 'page' : undefined}
+          class={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+            isActive(link.href)
+              ? 'bg-slate-800 text-white'
+              : 'text-slate-400 hover:bg-slate-900 hover:text-white'
+          }`}
+        >
+          {link.name}
+          {link.soon && <span class="ml-1 text-xs font-normal text-slate-400">(soon)</span>}
+        </a>
+      ))}
+      <Button href={LINKS.invite} external variant="discord" icon="discord" class="ml-4">Add to Discord</Button>
     </div>
 
-    <!-- The Button -->
-<button id="menu-button" class="md:hidden text-slate-400 p-2">
-  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-  </svg>
-</button>
+    <button
+      id="menu-button"
+      type="button"
+      class="rounded-lg p-2 text-slate-300 hover:text-white md:hidden"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span data-icon="open"><Icon name="menu" size={24} /></span>
+      <span data-icon="close" class="hidden"><Icon name="x" size={24} /></span>
+    </button>
+  </nav>
 
-  <!-- The Mobile Menu -->
-  <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-slate-950 border-b border-slate-800 p-6 flex flex-col gap-4 md:hidden">
-    {navLinks.map((link) => (
-      <a href={link.href} class="text-lg font-bold text-slate-400 hover:text-white">
-        {link.name}
-      </a>
-    ))}
-    <a href={inviteLink}  target ="_blank" rel="noopener noreferrer"
-    class="bg-orange-600 text-white px-5 py-3 rounded-lg text-center font-bold">
-      Invite Now
-    </a>
+  <div id="mobile-menu" class="hidden border-t border-slate-800 bg-slate-950 px-5 py-4 md:hidden">
+    <div class="flex flex-col gap-1">
+      {NAV.map((link) => (
+        <a
+          href={link.href}
+          aria-current={isActive(link.href) ? 'page' : undefined}
+          class={`flex items-center justify-between px-1 py-3 text-base font-medium ${
+            isActive(link.href) ? 'text-white' : 'text-slate-300'
+          }`}
+        >
+          {link.name}
+          {link.soon && <span class="text-sm font-normal text-slate-400">(soon)</span>}
+        </a>
+      ))}
+      <Button href={LINKS.invite} external variant="discord" icon="discord" class="mt-3 w-full">Add to Discord</Button>
+    </div>
   </div>
-</nav>
+</header>
+
 <script>
   const btn = document.getElementById('menu-button');
   const menu = document.getElementById('mobile-menu');
-  const links = menu?.querySelectorAll('a');
+  const openIcon = btn?.querySelector('[data-icon="open"]');
+  const closeIcon = btn?.querySelector('[data-icon="close"]');
 
-  btn?.addEventListener('click', () => {
-    menu?.classList.toggle('hidden');
-  });
+  function setOpen(open: boolean) {
+    menu?.classList.toggle('hidden', !open);
+    btn?.setAttribute('aria-expanded', String(open));
+    btn?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    openIcon?.classList.toggle('hidden', open);
+    closeIcon?.classList.toggle('hidden', !open);
+  }
 
-  // Close the menu when any link inside it is clicked
-  links?.forEach(link => {
-    link.addEventListener('click', () => {
-      menu?.classList.add('hidden');
-    });
+  btn?.addEventListener('click', () => setOpen(menu?.classList.contains('hidden') ?? false));
+  menu?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setOpen(false);
   });
 </script>

@@ -1,0 +1,17 @@
+---
+interface Props {
+  tone?: 'neutral' | 'ember' | 'blurple' | 'success';
+  class?: string;
+}
+const { tone = 'neutral', class: className = '' } = Astro.props;
+const tones = {
+  neutral: 'border-slate-700 text-slate-300',
+  ember: 'border-ember-500/40 text-ember-300',
+  blurple: 'border-indigo-400/40 text-indigo-300',
+  success: 'border-emerald-500/40 text-emerald-300',
+};
+---
+
+<span class={`inline-block rounded border px-2 py-0.5 text-xs font-medium ${tones[tone]} ${className}`}>
+  <slot />
+</span>

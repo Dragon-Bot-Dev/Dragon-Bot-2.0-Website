@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import Button from '../components/Button.astro';
+import { LINKS } from '../config';
+
+const costs = [
+  ['Hosting', 'The bot runs around the clock on a cloud host so reminders arrive on time.'],
+  ['Database', 'Linked accounts, server settings and war activity history are stored so they survive restarts.'],
+  ['Development time', 'New features, fixes after Supercell changes things, and keeping up with game updates.'],
+];
+
+const freeWays = [
+  ['Tell other clans', 'Sharing the bot with a clan that misses attacks is the best help there is.', LINKS.invite, 'Invite link'],
+  ['Report bugs and ideas', 'Good bug reports make the bot better for everyone.', LINKS.githubIssues, 'Open an issue'],
+  ['Join the server', 'Ask questions, suggest features and see what is coming next.', LINKS.discord, 'Support server'],
+];
+---
+
+<Layout
+  title="Support Dragon Bot | Dragon Bot 2.0"
+  description="Dragon Bot is free to use and built by one developer for the Clash of Clans community. Here is how hosting is covered and how you can help."
+>
+  <section class="mx-auto max-w-3xl px-5 pb-10 pt-14">
+    <SectionHeader
+      as="h1"
+      title="Support Dragon Bot"
+      lead="Dragon Bot started as a tool for the developer's own clan and is free to use. Hosting and database costs are paid out of pocket, and optional support is planned to help cover them."
+    />
+    <div class="mt-6">
+      <Button disabled variant="primary" size="lg">Support options coming soon</Button>
+      <p class="mt-3 text-sm text-slate-400">
+        Payments are not set up yet and nothing here is required. Pricing and any supporter perks are not decided.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 py-10">
+    <h2 class="text-2xl font-bold text-white">Where support goes</h2>
+    <dl class="mt-4 divide-y divide-slate-800 border-y border-slate-800">
+      {costs.map(([term, desc]) => (
+        <div class="grid gap-1 py-4 sm:grid-cols-[10rem_1fr] sm:gap-6">
+          <dt class="font-semibold text-white">{term}</dt>
+          <dd class="text-slate-300">{desc}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-20 pt-4">
+    <h2 class="text-2xl font-bold text-white">Other ways to help right now</h2>
+    <dl class="mt-4 divide-y divide-slate-800 border-y border-slate-800">
+      {freeWays.map(([term, desc, href, label]) => (
+        <div class="grid gap-1 py-4 sm:grid-cols-[10rem_1fr] sm:gap-6">
+          <dt class="font-semibold text-white">{term}</dt>
+          <dd class="text-slate-300">
+            {desc}
+            <a href={href} target="_blank" rel="noopener noreferrer" class="ml-1 whitespace-nowrap font-medium text-ember-400 hover:text-ember-300">{label} →</a>
+          </dd>
+        </div>
+      ))}
+    </dl>
+
+    <p class="mt-12 text-sm leading-relaxed text-slate-400">
+      "Dragon Bot 2.0 started as a tool for my own clan. Your support helps me keep the servers running and the code evolving. Thanks for being part of the journey." — Keepas
+    </p>
+  </section>
+</Layout>
