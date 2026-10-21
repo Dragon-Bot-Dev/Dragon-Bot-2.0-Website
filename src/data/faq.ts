@@ -20,7 +20,7 @@ export const faqGroups: FaqGroup[] = [
       },
       {
         q: 'Does it cost anything?',
-        a: 'No. Dragon Bot is free to use. A voluntary <a href="/support">support page</a> is planned to help cover hosting.',
+        a: 'No. Dragon Bot is free to use. If you want to chip in towards hosting, there is an optional <a href="/support">support page</a>. It unlocks nothing.',
       },
       {
         q: 'What permissions does the bot need?',

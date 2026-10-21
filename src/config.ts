@@ -22,8 +22,8 @@ export const LINKS = {
 // Support page shows a disabled "coming soon" button and the nav shows
 // "(soon)". Set `url` (and `platform`, e.g. "Ko-fi") to make it live.
 export const SUPPORT = {
-  url: "",
-  platform: "",
+  url: "https://ko-fi.com/keepas",
+  platform: "Ko-fi",
 };
 export const supportLive = SUPPORT.url !== "";
 
